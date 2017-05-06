@@ -1,0 +1,33 @@
+{
+  "name": "redux-basic-http-middleware",
+  "version": "1.0.0",
+  "description": "A super simple redux middleware for intercepting HTTP events.",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hcjk/redux-basic-http-middleware.git"
+  },
+  "keywords": [],
+  "author": "Henry Kaufman <henry@kaufman.io> (http://kaufman.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hcjk/redux-basic-http-middleware/issues"
+  },
+  "homepage": "https://github.com/hcjk/redux-basic-http-middleware#readme",
+  "dependencies": {
+    "axios": "0.16.1",
+    "redux": "3.6.0"
+  },
+  "devDependencies": {
+    "ava": "0.19.1",
+    "eslint": "3.19.0",
+    "eslint-config-airbnb": "14.1.0",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-jsx-a11y": "5.0.0",
+    "eslint-plugin-node": "4.2.2",
+    "eslint-plugin-react": "6.10.3"
+  }
+}
