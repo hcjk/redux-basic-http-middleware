@@ -104,7 +104,7 @@
     {
       "component": "header",
       "heading": "redux-basic-http-middleware",
-      "subhead": ":satellite: A super simple redux middleware for intercepting HTTP events.",
+      "subhead": "A super simple redux middleware for intercepting HTTP events.",
       "children": [
         {
           "component": "ui/TweetButton",
