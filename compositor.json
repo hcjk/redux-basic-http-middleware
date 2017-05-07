@@ -1,0 +1,143 @@
+{
+  "name": "hcjk/redux-basic-http-middleware",
+  "version": "0.1.4",
+  "libraries": {
+    "xv": "^1.1.25"
+  },
+  "title": "",
+  "branch": "",
+  "style": {
+    "name": "Default",
+    "componentSet": {
+      "nav": "nav/BasicNav",
+      "header": "header/BannerHeader",
+      "article": "article/BasicArticle",
+      "footer": "footer/BasicFooter"
+    },
+    "fontFamily": "-apple-system, BlinkMacSystemFont, sans-serif",
+    "fontWeight": 400,
+    "bold": 600,
+    "lineHeight": 1.5,
+    "typeScale": [
+      72,
+      48,
+      24,
+      20,
+      16,
+      14,
+      12
+    ],
+    "monospace": "Menlo, monospace",
+    "heading": {
+      "fontFamily": null,
+      "fontStyle": null,
+      "fontWeight": 600,
+      "lineHeight": 1.25,
+      "textTransform": null,
+      "letterSpacing": null
+    },
+    "h0": {},
+    "h1": {},
+    "h2": {},
+    "h3": {},
+    "h4": {},
+    "h5": {},
+    "h6": {},
+    "alternativeText": {},
+    "space": [
+      0,
+      8,
+      16,
+      32,
+      48,
+      64,
+      96
+    ],
+    "layout": {
+      "maxWidth": 1024,
+      "centered": false
+    },
+    "colors": {
+      "text": "#111",
+      "background": "#fff",
+      "primary": "#08e",
+      "secondary": "#059",
+      "highlight": "#e08",
+      "border": "#ddd",
+      "muted": "#eee"
+    },
+    "border": {
+      "width": 1,
+      "radius": 2
+    },
+    "link": {},
+    "button": {
+      "hover": {
+        "boxShadow": "inset 0 0 0 999px rgba(0, 0, 0, .125)"
+      }
+    },
+    "input": {},
+    "body": {
+      "margin": 0
+    },
+    "breakpoints": {
+      "xs": "@media screen and (max-width:40em)",
+      "sm": "@media screen and (min-width:40em)",
+      "md": "@media screen and (min-width:52em)",
+      "lg": "@media screen and (min-width:64em)"
+    }
+  },
+  "content": [
+    {
+      "component": "nav",
+      "links": [
+        {
+          "href": "https://github.com/hcjk/redux-basic-http-middleware",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://npmjs.com/package/redux-basic-http-middleware",
+          "text": "npm"
+        }
+      ]
+    },
+    {
+      "component": "header",
+      "heading": "redux-basic-http-middleware",
+      "subhead": ":satellite: A super simple redux middleware for intercepting HTTP events.",
+      "children": [
+        {
+          "component": "ui/TweetButton",
+          "text": "redux-basic-http-middleware: :satellite: A super simple redux middleware for intercepting HTTP events.",
+          "url": ""
+        },
+        {
+          "component": "ui/GithubButton",
+          "user": "hcjk",
+          "repo": "redux-basic-http-middleware"
+        }
+      ],
+      "text": "v1.0.0"
+    },
+    {
+      "component": "article",
+      "metadata": {
+        "source": "github.readme"
+      },
+      "html": "\n<p>A super simple redux middleware for intercepting HTTP events.</p>\n<h2>Install</h2>\n<pre>$ npm install --save redux-basic-http-middleware</pre><h2>Usage</h2>\n<pre><span class=\"hljs-keyword\">import</span> { createStore, applyMiddleware } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&apos;redux&apos;</span>;\n<span class=\"hljs-keyword\">import</span> reduxBasicHttpMiddleware <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&apos;redux-basic-http-middleware&apos;</span>;\n<span class=\"hljs-keyword\">import</span> thunkMiddleware <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&apos;redux-thunk&apos;</span>;\n<span class=\"hljs-keyword\">import</span> rootReducer <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&apos;./reducers&apos;</span>;\n\n<span class=\"hljs-comment\">//Basic configuration for the middleware</span>\n<span class=\"hljs-keyword\">const</span> config = {\n  <span class=\"hljs-attr\">baseUrl</span>: <span class=\"hljs-string\">&apos;YOUR API ROUTE&apos;</span>\n};\n\ncreateStore(rootReducer, applyMiddleware(thunkMiddleware, reduxBasicHttpMiddleware(config)))</pre><h2>API</h2>\n<h4>Action Example</h4>\n<pre><span class=\"hljs-keyword\">const</span> fetchUser = <span class=\"hljs-function\"><span class=\"hljs-params\">user</span> =&gt;</span> ({\n  <span class=\"hljs-attr\">type</span>: <span class=\"hljs-string\">&apos;FETCH_USER&apos;</span>,\n  <span class=\"hljs-attr\">promise</span>: {\n    <span class=\"hljs-attr\">method</span>: <span class=\"hljs-string\">&apos;get&apos;</span>,\n    <span class=\"hljs-attr\">url</span>: <span class=\"hljs-string\">`users/<span class=\"hljs-subst\">${user}</span>`</span>\n  }\n});</pre><h4>Action With Options</h4>\n<pre><span class=\"hljs-keyword\">const</span> saveUser = <span class=\"hljs-function\"><span class=\"hljs-params\">user</span> =&gt;</span> ({\n  <span class=\"hljs-attr\">type</span>: <span class=\"hljs-string\">&apos;FETCH_USER&apos;</span>,\n  <span class=\"hljs-attr\">promise</span>: {\n    <span class=\"hljs-attr\">method</span>: <span class=\"hljs-string\">&apos;post&apos;</span>,\n    <span class=\"hljs-attr\">url</span>: <span class=\"hljs-string\">&apos;users&apos;</span>,\n    <span class=\"hljs-attr\">data</span>: {\n      user\n    }\n  }\n});</pre><h4>Aync actions</h4>\n<p><code>redux-basic-http-middleware</code> is built on the idea of async actions, and correlating action types are called for each action.</p>\n<p>When an action is called, the acion type of <code>ACTION_TYPE_REQUEST</code> is called, where <code>ACTION_TYPE</code> is the name of your action.</p>\n<p>If an action completes successfully, we call <code>ACTION_TYPE_SUCCESS</code> where <code>ACTION_TYPE</code> is the name of your action.</p>\n<p>If an action fails, we call <code>ACTION_TYPE_FAILURE</code> where <code>ACTION_TYPE</code> is the name of your action.</p>\n<p><strong>Quick example</strong></p>\n<pre><span class=\"hljs-keyword\">const</span> fetchUser = <span class=\"hljs-function\"><span class=\"hljs-params\">user</span> =&gt;</span> ({\n  <span class=\"hljs-attr\">type</span>: <span class=\"hljs-string\">&apos;FETCH_USER&apos;</span>,\n  <span class=\"hljs-attr\">promise</span>: {\n    <span class=\"hljs-attr\">method</span>: <span class=\"hljs-string\">&apos;get&apos;</span>,\n    <span class=\"hljs-attr\">url</span>: <span class=\"hljs-string\">`users/<span class=\"hljs-subst\">${user}</span>`</span>\n  }\n});\n\n<span class=\"hljs-comment\">//&quot;FETCH_USER_REQUEST&quot; is called immediately and can be used to show a loading state</span>\n<span class=\"hljs-comment\">//If the function succeeds, &quot;FETCH_USER_SUCCESS&quot; is called</span>\n<span class=\"hljs-comment\">//If the function fails, &quot;FETCH_USER_FAILURE&quot; is called</span></pre><h2>Development</h2>\n<p>If you find an issue, feel free to <a href=\"https://github.com/hcjk/redux-basic-http-middleware/issues\">open an issue</a>.</p>\n<pre>git clone git@github.com:hcjk/redux-basic-http-middleware.git</pre><h2>License</h2>\n<p>Copyright (c) 2017 Henry Kaufman, licensed under the MIT license. See <a href=\"https://github.com/hcjk/redux-basic-http-middleware/blob/master/LICENSE.md\">LICENSE.md</a> for more information.</p>\n"
+    },
+    {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/hcjk/redux-basic-http-middleware",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/hcjk",
+          "text": "hcjk"
+        }
+      ]
+    }
+  ]
+}
